@@ -17,6 +17,7 @@ The application dynamically adjusts its information hierarchy based on the entry
 
 ## 2. Visual Experience (UI/UX)
 The interface is designed to be immersive, leveraging modern web aesthetics to create a premium, "OS-like" feel.
+*   **Content Constraint:** 避免使用無意義的推銷文字 (Avoid meaningless promotional text). Focus on raw data and technical utility.
 
 ### 2.1 Aesthetic & Theme
 *   **Core Theme:** Deep dark mode with high-contrast accents.

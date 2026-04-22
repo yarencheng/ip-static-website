@@ -113,7 +113,6 @@
 
   <footer class="app-footer">
     <div class="footer-content">
-      <p>High-performance IP Geolocation Service</p>
       <div class="footer-links">
         <a href="https://github.com/yarencheng/ip-static-website" target="_blank" rel="noopener">GitHub</a>
       </div>

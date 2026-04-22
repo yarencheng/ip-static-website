@@ -1,6 +1,6 @@
 # IP Geolocation Service
 
-A minimalist, high-performance web application providing real-time IP geolocation services. Built with Svelte 5 and optimized for speed, accuracy, and accessibility.
+A minimalist IP geolocation application providing real-time network metadata. Built with Svelte 5.
 
 ## Architecture
 
