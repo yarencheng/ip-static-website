@@ -30,19 +30,30 @@
   // --- Actions ---
   async function fetchIps() {
     try {
+      loading = true;
+      error = null;
+
       // Parallel fetch for IPv4 and IPv6
       const [v4Res, v6Res] = await Promise.allSettled([
-        fetch('https://api.ipify.org?format=json').then(r => r.json()),
-        fetch('https://api6.ipify.org?format=json').then(r => r.json())
+        fetch('https://api.ipify.org?format=json').then(r => r.ok ? r.json() : Promise.reject('v4 failed')),
+        fetch('https://api6.ipify.org?format=json').then(r => r.ok ? r.json() : Promise.reject('v6 failed'))
       ]);
 
-      if (v4Res.status === 'fulfilled') ipv4 = v4Res.value.ip;
-      if (v6Res.status === 'fulfilled') ipv6 = v6Res.value.ip;
+      if (v4Res.status === 'fulfilled' && v4Res.value?.ip) ipv4 = v4Res.value.ip;
+      if (v6Res.status === 'fulfilled' && v6Res.value?.ip) ipv6 = v6Res.value.ip;
 
-      // Geolocation (using freeipapi.com as it supports HTTPS)
-      const geoRes = await fetch('https://freeipapi.com/api/json');
-      if (geoRes.ok) {
-        geo = await geoRes.ok ? await geoRes.json() : null;
+      // Geolocation (using free.freeipapi.com as it's the stable endpoint)
+      try {
+        const geoRes = await fetch('https://free.freeipapi.com/api/json');
+        if (geoRes.ok) {
+          geo = await geoRes.json();
+        }
+      } catch (geoErr) {
+        console.error('Failed to fetch geolocation:', geoErr);
+      }
+
+      if (!ipv4 && !ipv6) {
+        error = 'Failed to load network data. Please check your connection.';
       }
     } catch (err) {
       console.error('Failed to fetch IP data:', err);
@@ -84,15 +95,19 @@
         <div class="metadata-grid">
           <div class="metadata-item">
             <span class="metadata-label">Location</span>
-            <span class="metadata-value">{geo.cityName}, {geo.regionName}, {geo.countryName}</span>
+            <span class="metadata-value">
+              {[geo.cityName, geo.regionName, geo.countryName].filter(Boolean).join(', ')}
+            </span>
           </div>
           <div class="metadata-item">
             <span class="metadata-label">Network / ISP</span>
-            <span class="metadata-value">{geo.asName || 'Unknown ISP'}</span>
+            <span class="metadata-value">{geo.asnOrganization || geo.asName || 'Unknown ISP'}</span>
           </div>
           <div class="metadata-item">
             <span class="metadata-label">Timezone</span>
-            <span class="metadata-value">{geo.timeZone || 'N/A'}</span>
+            <span class="metadata-value">
+              {geo.timeZone || (geo.timeZones && geo.timeZones[0]) || 'N/A'}
+            </span>
           </div>
           <div class="metadata-item">
             <span class="metadata-label">Coordinates</span>
@@ -107,6 +122,8 @@
             <span class="metadata-value">AS{geo.asn || 'N/A'}</span>
           </div>
         </div>
+      {:else}
+        <div class="error">Geolocation data currently unavailable.</div>
       {/if}
     </section>
   </div>
@@ -184,7 +201,5 @@
     border-bottom-color: var(--accent);
   }
 
-  .separator {
-    opacity: 0.3;
-  }
+
 </style>

@@ -21,15 +21,15 @@ describe('App Component', () => {
       if (url.includes('api6.ipify.org')) {
         return Promise.resolve({ ok: true, json: () => Promise.resolve({ ip: '2001:db8::1' }) });
       }
-      if (url.includes('freeipapi.com')) {
+      if (url.includes('free.freeipapi.com')) {
         return Promise.resolve({
           ok: true,
           json: () => Promise.resolve({
             cityName: 'San Francisco',
             regionName: 'California',
             countryName: 'United States',
-            asName: 'Mock ISP',
-            timeZone: 'America/Los_Angeles',
+            asnOrganization: 'Mock ISP',
+            timeZones: ['America/Los_Angeles'],
             latitude: 37.7749,
             longitude: -122.4194,
             zipCode: '94105',
