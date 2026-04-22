@@ -91,4 +91,4 @@ The interface is designed to be immersive, leveraging modern web aesthetics to c
     *   **Architecture:** Overview of the Svelte 5 + API flow.
     *   **Development:** `npm install`, `npm run dev`.
     *   **Deployment:** Automated CI/CD pipeline details.
-    *   **Parity:** Comparison with `curl` based tools like `ifconfig.io`.
+    *   **Deployment:** Automated CI/CD pipeline details.

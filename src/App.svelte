@@ -116,8 +116,6 @@
       <p>High-performance IP Geolocation Service</p>
       <div class="footer-links">
         <a href="https://github.com/yarencheng/ip-static-website" target="_blank" rel="noopener">GitHub</a>
-        <span class="separator">•</span>
-        <span>Compatible with <code>curl</code> tools</span>
       </div>
     </div>
   </footer>
@@ -187,12 +185,5 @@
 
   .separator {
     opacity: 0.3;
-  }
-
-  code {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    font-family: monospace;
   }
 </style>

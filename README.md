@@ -42,9 +42,6 @@ The application is designed to be deployed as a static site.
 - **Primary URL**: [ip.devops-playground.dev](https://ip.devops-playground.dev)
 - **CI/CD**: Automatic builds via GitHub Actions (or similar) triggering on push to `main`.
 
-## Parity
-
-This tool is designed to be a visual alternative to CLI-based tools like `curl ifconfig.io`. While it provides a rich GUI, it maintains the same accuracy and speed expected by engineers.
 
 ---
 
