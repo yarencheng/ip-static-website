@@ -114,7 +114,9 @@
   <footer class="app-footer">
     <div class="footer-content">
       <div class="footer-links">
-        <a href="https://github.com/yarencheng/ip-static-website" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/yarencheng/ip-static-website" target="_blank" rel="noopener">
+          GitHub <span class="repo-url">github.com/yarencheng/ip-static-website</span>
+        </a>
       </div>
     </div>
   </footer>
@@ -180,6 +182,13 @@
 
   .footer-links a:hover {
     border-bottom-color: var(--accent);
+  }
+
+  .repo-url {
+    opacity: 0.5;
+    font-size: 0.85em;
+    margin-left: 0.5rem;
+    font-weight: 400;
   }
 
   .separator {
