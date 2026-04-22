@@ -8,6 +8,7 @@ describe('App Component', () => {
   });
 
   it('renders detecting state initially', () => {
+    (fetch as any).mockReturnValue(new Promise(() => {})); // Return a pending promise
     render(App);
     expect(screen.getByText(/Detecting.../i)).toBeInTheDocument();
   });
