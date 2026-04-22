@@ -1,6 +1,6 @@
 # IP Geolocation Service - Product Design Document
 
-A minimalist, high-performance web application providing real-time IP geolocation services. The site displays the visitor's public IP addresses (IPv4 and IPv6) alongside rich geographic and network provider metadata.
+A minimalist IP geolocation service displaying public IPv4/IPv6 addresses and associated network metadata.
 
 ## 1. Domain & Routing Strategy
 The application dynamically adjusts its information hierarchy based on the entry subdomain to prioritize the relevant protocol.
