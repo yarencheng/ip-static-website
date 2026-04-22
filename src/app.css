@@ -15,15 +15,24 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   background-color: var(--bg-outer);
   background-image: radial-gradient(circle at center, var(--bg-center) -200%, var(--bg-outer) 100%);
   color: var(--text-primary);
   font-family: var(--font-main);
+  overflow-x: hidden;
+}
+
+#app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
 }
 
 /* Base Layout */

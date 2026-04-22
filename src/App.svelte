@@ -127,17 +127,17 @@
       {/if}
     </section>
   </div>
-
-  <footer class="app-footer">
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="https://github.com/yarencheng/ip-static-website" target="_blank" rel="noopener">
-          github.com/yarencheng/ip-static-website
-        </a>
-      </div>
-    </div>
-  </footer>
 </main>
+
+<footer class="app-footer">
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="https://github.com/yarencheng/ip-static-website" target="_blank" rel="noopener">
+        github.com/yarencheng/ip-static-website
+      </a>
+    </div>
+  </div>
+</footer>
 
 <style>
   .loading, .error {
@@ -169,7 +169,6 @@
   }
 
   .app-footer {
-    margin-top: 4rem;
     padding: 2rem;
     width: 100%;
     color: var(--text-secondary);
